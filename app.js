@@ -20,6 +20,7 @@ const scenarios = {
     narrative:
       "구리 가격과 환율 변동성이 평시 대비 높고, 대만 및 중국 관련 공급망 뉴스가 증가했습니다. 주요 부품 리드타임을 재확인하세요.",
     metrics: { leadTime: "+4일", cost: "+2.1%", confidence: "78%" },
+    kpis: { alerts: 7, alertsDelta: "+1 vs yesterday", suppliers: 2, sla: "12h", slaDelta: "Monitor daily" },
     domains: { market: 62, news: 58, geopolitical: 54, logistics: 49 },
     trend: [39, 41, 40, 44, 47, 45, 48, 49, 51, 50, 52, 54, 53, 57, 55, 56, 58, 59, 57, 58, 60, 57, 56, 58, 59, 58, 57, 56, 58, 58],
     causes: [
@@ -36,6 +37,7 @@ const scenarios = {
     narrative:
       "규제 뉴스 강도와 중국 의존 엔티티 밀도가 급등했습니다. 중국 의존 소재 리스트와 대체 공급처 가용성을 즉시 확인하세요.",
     metrics: { leadTime: "+14일", cost: "+6.2%", confidence: "91%" },
+    kpis: { alerts: 18, alertsDelta: "+7 vs yesterday", suppliers: 6, sla: "2h", slaDelta: "Immediate escalation" },
     domains: { market: 72, news: 91, geopolitical: 88, logistics: 77 },
     trend: [46, 47, 49, 52, 51, 54, 56, 58, 61, 63, 64, 62, 65, 68, 69, 71, 74, 78, 81, 83, 80, 82, 85, 84, 86, 84, 83, 85, 84, 84],
     causes: [
@@ -53,6 +55,7 @@ const scenarios = {
     narrative:
       "최근 7일간 뉴스 위험 강도와 원자재 비용 압박이 함께 증가했습니다. 공정용 가스 재고와 중국 의존 부품을 우선 점검하세요.",
     metrics: { leadTime: "+9일", cost: "+4.8%", confidence: "87%" },
+    kpis: { alerts: 12, alertsDelta: "+3 vs yesterday", suppliers: 4, sla: "4h", slaDelta: "P1 response window" },
     domains: { market: 65, news: 82, geopolitical: 74, logistics: 71 },
     trend: [42, 43, 45, 47, 46, 48, 50, 52, 55, 54, 57, 59, 61, 62, 64, 65, 67, 66, 69, 72, 74, 73, 75, 77, 76, 79, 78, 77, 78, 78],
     causes: [
@@ -70,6 +73,7 @@ const scenarios = {
     narrative:
       "부산, 상하이, 대만 항만 지표에서 처리량 감소와 운임 상승이 감지됐습니다. 핵심 품목의 리드타임을 재계산하세요.",
     metrics: { leadTime: "+11일", cost: "+3.7%", confidence: "83%" },
+    kpis: { alerts: 10, alertsDelta: "+4 vs yesterday", suppliers: 3, sla: "6h", slaDelta: "Route review needed" },
     domains: { market: 56, news: 69, geopolitical: 61, logistics: 88 },
     trend: [38, 40, 42, 41, 43, 45, 46, 48, 52, 54, 56, 55, 57, 59, 61, 62, 65, 67, 68, 70, 72, 73, 71, 70, 72, 71, 73, 72, 71, 71],
     causes: [
@@ -128,6 +132,25 @@ function getLevelColor(score) {
   return COLORS.green;
 }
 
+function mixHex(start, end, ratio) {
+  const parse = (hex) => hex.match(/\w\w/g).map((value) => parseInt(value, 16));
+  const [sr, sg, sb] = parse(start);
+  const [er, eg, eb] = parse(end);
+  const mixed = [sr, sg, sb].map((value, index) => {
+    const target = [er, eg, eb][index];
+    return Math.round(value + (target - value) * ratio)
+      .toString(16)
+      .padStart(2, "0");
+  });
+  return `#${mixed.join("")}`;
+}
+
+function getGaugeColor(score) {
+  if (score <= 35) return mixHex(COLORS.blue, COLORS.green, score / 35);
+  if (score <= 70) return mixHex(COLORS.green, COLORS.yellow, (score - 35) / 35);
+  return mixHex(COLORS.yellow, COLORS.red, (score - 70) / 30);
+}
+
 function getBriefStatus(score) {
   if (score >= 81) return "복합 위험 신호 감지";
   if (score >= 61) return "일부 지표 이상 감지";
@@ -146,7 +169,7 @@ function escapeHTML(value) {
 }
 
 function renderBriefHeadline(text) {
-  const keywords = ["헬륨", "중국", "규제", "뉴스 신호", "항만", "운임", "원자재", "수출통제"];
+  const keywords = ["중국 규제 신호", "헬륨", "증가"];
   let safe = escapeHTML(text);
   keywords.forEach((keyword) => {
     safe = safe.replaceAll(keyword, `<span class="headline-accent">${keyword}</span>`);
@@ -161,16 +184,20 @@ function renderBriefNarrative(text) {
     .filter(Boolean);
 
   $("mainNarrative").innerHTML = sentences
-    .map((sentence) => `<span class="lead-sentence">${escapeHTML(sentence)}</span>`)
+    .map((sentence) => `<span class="lead-sentence">${escapeHTML(sentence).replaceAll("증가", `<span class="headline-accent">증가</span>`)}</span>`)
     .join("");
 }
 
 function render() {
   const data = scenarios[state.scenario];
-  const color = getLevelColor(data.score);
+  const color = getGaugeColor(data.score);
   const currentTime = new Date().toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" });
   $("riskScore").textContent = data.score;
   $("riskLevel").textContent = data.level;
+  $("riskLevel").style.color = color;
+  $("riskLevel").style.borderColor = "rgba(255, 255, 255, 0.72)";
+  $("riskLevel").style.background = `${color}24`;
+  $("riskLevel").style.boxShadow = `0 0 22px ${color}33`;
   $("statusText").textContent = getBriefStatus(data.score);
   $("statusDot").style.background = color;
   renderBriefHeadline(data.headline);
@@ -178,6 +205,13 @@ function render() {
   $("leadTimeImpact").textContent = data.metrics.leadTime;
   $("costImpact").textContent = data.metrics.cost;
   $("confidence").textContent = data.metrics.confidence;
+  $("openAlerts").textContent = data.kpis.alerts;
+  $("openAlertsDelta").textContent = data.kpis.alertsDelta;
+  $("criticalSuppliers").textContent = data.kpis.suppliers;
+  $("criticalSuppliersDelta").textContent = data.kpis.suppliers >= 5 ? "High China exposure" : "Tier 1-2 exposure";
+  $("avgLeadTime").textContent = data.metrics.leadTime;
+  $("decisionSla").textContent = data.kpis.sla;
+  $("decisionSlaDelta").textContent = data.kpis.slaDelta;
   $("briefUpdated").textContent = `Updated ${currentTime} KST`;
   $("briefConfidence").textContent = `Signal Confidence ${data.metrics.confidence}`;
   $("briefSources").textContent = "Source: Market · News · Logistics";
@@ -227,9 +261,9 @@ function renderGauge(score, color) {
   ctx.stroke();
 
   const grad = ctx.createConicGradient(start, cx, cy);
-  grad.addColorStop(0, COLORS.teal);
-  grad.addColorStop(0.38, COLORS.blue);
-  grad.addColorStop(0.68, COLORS.orange);
+  grad.addColorStop(0, COLORS.blue);
+  grad.addColorStop(0.35, COLORS.green);
+  grad.addColorStop(0.7, COLORS.yellow);
   grad.addColorStop(1, COLORS.red);
 
   ctx.save();
