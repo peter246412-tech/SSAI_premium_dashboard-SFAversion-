@@ -4,6 +4,16 @@ SFA Semicon의 PCB 원자재 공급망 리스크를 분석하는 SSAI(Semiconduc
 
 이 저장소는 같은 과제물을 단계적으로 발전시킨 세 저장소를 하나로 통합한 최종 저장소입니다.
 
+## Project Summary
+
+SSAI는 반도체 관련 기업의 구매/조달 담당자가 시장 가격, 뉴스, 지정학, 물류 데이터를 따로따로 확인하지 않고 하나의 조기경보 점수로 공급망 위험을 판단하도록 돕는 대시보드입니다.
+
+프로젝트는 처음부터 완성형 대시보드로 시작한 것이 아니라, 아래 순서로 발전했습니다.
+
+1. 공급망 리스크를 어떻게 점수화할지 정의했습니다.
+2. HTML/CSS/JavaScript로 cheap dashboard 프로토타입을 만들었습니다.
+3. SFA Semicon의 PCB 원자재 공급망 상황에 맞춘 premium React/Vite 대시보드로 확장했습니다.
+
 ## Version History
 
 | Version | Previous repository | Role | Location |
@@ -12,7 +22,27 @@ SFA Semicon의 PCB 원자재 공급망 리스크를 분석하는 SSAI(Semiconduc
 | v2 | `SSAI_dashboard_-cheap-version-` | HTML/CSS/JavaScript 기반 cheap dashboard 프로토타입 | `legacy/v2-cheap-dashboard/` |
 | v3 | `SSAI_premium_dashboard-SFAversion-` | SFA Semicon 대상 premium React/Vite dashboard 최종본 | root project |
 
-자세한 발전 과정은 `docs/version-history.md`에 정리되어 있습니다.
+자세한 발전 과정은 `docs/version-history.md`에 순차적으로 정리되어 있습니다.
+
+## Development Process
+
+### 1. v1: Concept and Risk Scoring Design
+
+초기 버전은 웹앱보다 문제 정의와 분석 구조에 집중했습니다. 공급망 위험은 갑자기 발생하는 것이 아니라 시장 가격, 뉴스, 지정학 이슈, 물류 지표에서 먼저 약한 신호로 나타난다는 가정에서 출발했습니다.
+
+이 단계에서는 market, news, geopolitical, logistics 데이터를 나누고, 각 영역을 0-100점으로 변환한 뒤 가중합으로 최종 risk score를 만드는 구조를 설계했습니다.
+
+### 2. v2: Cheap Dashboard Prototype
+
+두 번째 버전에서는 아이디어를 실제 화면으로 옮겼습니다. HTML, CSS, JavaScript만 사용해 시나리오별 risk score, KPI, domain score, trend chart, news feed, supplier exposure, daily brief를 확인할 수 있는 정적 웹 대시보드를 만들었습니다.
+
+이 단계의 목적은 "공급망 리스크 점수가 실제 사용자 화면에서 어떻게 읽히는가"를 빠르게 검증하는 것이었습니다.
+
+### 3. v3: Premium SFA Dashboard
+
+최종 버전에서는 SFA Semicon의 PCB 원자재 공급망 리스크라는 구체적인 기업/업무 맥락을 적용했습니다. React, TypeScript, Vite, Recharts 기반으로 구조를 재작성했고, 공식 데이터, proxy data, PoC assumption, internal data requirement를 화면에서 분리 표시하도록 개선했습니다.
+
+또한 `2026-02-21` 분석일 기준의 조기경보 운영 대시보드처럼 구성해, 미래 사건을 직접 노출하지 않고 당시 확인 가능한 신호만으로 어떤 구매 의사결정을 할 수 있었는지 보여주도록 설계했습니다.
 
 이 버전은 화면을 **2026-02-21 당일의 조기경보 운영 대시보드**처럼 구성합니다. 즉, 미래 사건 날짜를 화면에 노출하지 않고, 그날 확인 가능한 시장·뉴스·지정학·물류 신호만으로 구매팀이 어떤 판단을 할 수 있었는지 보여줍니다.
 
