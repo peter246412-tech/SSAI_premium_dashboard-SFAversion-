@@ -31,7 +31,7 @@ v2 SSAI_dashboard_-cheap-version-
 
         ↓
 
-v3 SSAI_premium_dashboard-SFAversion-
+v3 Korea-SSAI-Semiconductor-Supply-Chain-Risk-Dashboard
   SFA Semicon 맥락을 적용한 React/Vite premium dashboard 완성
 ```
 
@@ -117,11 +117,11 @@ v2에서 구현한 주요 기능은 다음과 같습니다.
 - 특정 기업의 실제 업무 맥락이 약합니다.
 - 발표용으로는 좋지만, premium dashboard처럼 세밀한 UI/데이터 구조를 유지하기 어렵습니다.
 
-## 4. v3: SSAI_premium_dashboard-SFAversion-
+## 4. v3: Korea-SSAI-Semiconductor-Supply-Chain-Risk-Dashboard
 
 ### Repository
 
-- Original repository: `peter246412-tech/SSAI_premium_dashboard-SFAversion-`
+- Original repository: `peter246412-tech/Korea-SSAI-Semiconductor-Supply-Chain-Risk-Dashboard`
 - Current location: repository root
 - Integrated branch: `v3-premium-sfa`
 - Tag: `v3-premium-sfa`
