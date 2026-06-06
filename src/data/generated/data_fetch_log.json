@@ -1,0 +1,50 @@
+[
+  {
+    "scriptName": "scripts/fetch_fred_market.py",
+    "source": "FRED DEXKOUS / PCOPPUSDM / DCOILBRENTEU",
+    "status": "success",
+    "recordsFetched": 3,
+    "lastRunAt": "2026-05-28T09:00:00+09:00",
+    "message": "Official FRED market rows are stored under data/official/market."
+  },
+  {
+    "scriptName": "scripts/fetch_ecos_import_price.py",
+    "source": "Bank of Korea ECOS",
+    "status": "blocked",
+    "recordsFetched": 0,
+    "lastRunAt": "2026-05-28T09:00:00+09:00",
+    "message": "Need API Key / Need series code. Displayed as Scenario estimate, not official data."
+  },
+  {
+    "scriptName": "scripts/fetch_news_signals.py",
+    "source": "GDELT/Naver/Google News RSS",
+    "status": "fallback",
+    "recordsFetched": 5,
+    "lastRunAt": "2026-05-28T09:00:00+09:00",
+    "message": "Official data fetch failed / fallback used. Rows are labeled Scenario news data."
+  },
+  {
+    "scriptName": "scripts/fetch_gdelt_geo.py",
+    "source": "GDELT 2.1 Event API",
+    "status": "pending",
+    "recordsFetched": 0,
+    "lastRunAt": "2026-05-28T09:00:00+09:00",
+    "message": "Connector pending. Current dashboard uses proxy geopolitical watch data."
+  },
+  {
+    "scriptName": "scripts/fetch_logistics_sources.py",
+    "source": "SCFI / PORT-MIS / Brent",
+    "status": "partial",
+    "recordsFetched": 2,
+    "lastRunAt": "2026-05-28T09:00:00+09:00",
+    "message": "Brent is official. SCFI and PORT-MIS are proxy/API-key-needed rows."
+  },
+  {
+    "scriptName": "scripts/fetch_dart_suppliers.py",
+    "source": "DART Open API / overseas IR",
+    "status": "blocked",
+    "recordsFetched": 0,
+    "lastRunAt": "2026-05-28T09:00:00+09:00",
+    "message": "Need DART_API_KEY and supplier code mapping."
+  }
+]

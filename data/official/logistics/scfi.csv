@@ -1,0 +1,2 @@
+data_date,value,indicator,source_name,source_url,source_code,collected_at,note
+2026-02-21,,Shanghai Containerized Freight Index,Shanghai Shipping Exchange,https://en.sse.net.cn/indices/scfinew.jsp,SCFI,2026-05-28T09:00:00+09:00,Proxy data / manual update needed. Historical target date was not automatically fetched, so dashboard does not label the +9.8% value as official.

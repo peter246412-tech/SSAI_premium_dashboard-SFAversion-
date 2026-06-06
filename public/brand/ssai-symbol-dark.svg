@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">SSAI symbol, dark background</title>
+  <desc id="desc">Supply chain network nodes with a restrained risk detection signal.</desc>
+  <defs>
+    <linearGradient id="network" x1="48" y1="64" x2="210" y2="198" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EAF6FF"/>
+      <stop offset="0.48" stop-color="#68BDF5"/>
+      <stop offset="1" stop-color="#F2D488"/>
+    </linearGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3.8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path d="M42 128C42 80.5 80.5 42 128 42s86 38.5 86 86-38.5 86-86 86-86-38.5-86-86Z" fill="none" stroke="#D8E8F7" stroke-opacity="0.12" stroke-width="2"/>
+  <path d="M66 128c0-34.2 27.8-62 62-62 20.8 0 39.2 10.3 50.4 26" fill="none" stroke="#68BDF5" stroke-opacity="0.28" stroke-width="3" stroke-linecap="round"/>
+  <path d="M83 171c11.2 11.7 27.2 19 45 19 22.5 0 42.1-12 52.9-30" fill="none" stroke="#F2D488" stroke-opacity="0.34" stroke-width="3" stroke-linecap="round"/>
+  <path d="M57 148 94 101 128 128 166 84 201 132 158 172 112 154 82 190" fill="none" stroke="url(#network)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M57 148 94 101 128 128 166 84 201 132 158 172 112 154 82 190" fill="none" stroke="#07101D" stroke-opacity="0.55" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <g filter="url(#softGlow)">
+    <circle cx="57" cy="148" r="9" fill="#0F1A2B" stroke="#EAF6FF" stroke-width="4"/>
+    <circle cx="94" cy="101" r="9" fill="#0F1A2B" stroke="#68BDF5" stroke-width="4"/>
+    <circle cx="128" cy="128" r="11" fill="#0F1A2B" stroke="#EAF6FF" stroke-width="4"/>
+    <circle cx="166" cy="84" r="9" fill="#0F1A2B" stroke="#68BDF5" stroke-width="4"/>
+    <circle cx="201" cy="132" r="11" fill="#FF6B4A"/>
+    <circle cx="201" cy="132" r="18" fill="none" stroke="#FF6B4A" stroke-opacity="0.34" stroke-width="3"/>
+    <circle cx="158" cy="172" r="9" fill="#0F1A2B" stroke="#F2D488" stroke-width="4"/>
+  </g>
+</svg>

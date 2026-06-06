@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #e5e7eb;
+  background: #080b12;
+  font-family:
+    Inter, Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", system-ui,
+    -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    linear-gradient(135deg, rgba(201, 168, 92, 0.12), transparent 34%),
+    linear-gradient(225deg, rgba(37, 99, 235, 0.14), transparent 42%),
+    linear-gradient(180deg, #101522 0%, #080b12 44%, #0b0f17 100%);
+  color: #e5e7eb;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.dashboard-card {
+  border: 1px solid rgba(226, 232, 240, 0.12);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(31, 41, 55, 0.86), rgba(15, 23, 42, 0.78)),
+    rgba(15, 23, 42, 0.82);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(18px);
+}
+
+.premium-panel {
+  border: 1px solid rgba(201, 168, 92, 0.34);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 30%),
+    linear-gradient(180deg, #172033, #0b1120);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(20px);
+}
+
+.champagne-line {
+  background: linear-gradient(90deg, transparent, #c9a85c, transparent);
+  height: 1px;
+}
+
+.dashboard-card .text-slate-950,
+.dashboard-card .text-slate-900,
+.dashboard-card .text-slate-800,
+.premium-panel .text-slate-950,
+.premium-panel .text-slate-900,
+.premium-panel .text-slate-800 {
+  color: #f8fafc !important;
+}
+
+.dashboard-card .text-slate-700,
+.dashboard-card .text-slate-600,
+.dashboard-card .text-slate-500,
+.premium-panel .text-slate-700,
+.premium-panel .text-slate-600,
+.premium-panel .text-slate-500 {
+  color: #aeb9ca !important;
+}
+
+.dashboard-card .border-slate-200,
+.premium-panel .border-slate-200 {
+  border-color: rgba(226, 232, 240, 0.12) !important;
+}
+
+.dashboard-card .bg-white,
+.dashboard-card .bg-slate-50,
+.dashboard-card .bg-slate-100 {
+  background-color: rgba(255, 255, 255, 0.055) !important;
+}
+
+.dashboard-card .bg-gradient-to-b {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035)) !important;
+}
+
+.dashboard-card table thead,
+.dashboard-card table tr {
+  background-color: transparent !important;
+}
+
+.dashboard-card tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.dashboard-card .shadow-inner {
+  box-shadow: inset 0 1px 28px rgba(15, 23, 42, 0.16);
+}
+
+.risk-gauge {
+  background:
+    radial-gradient(circle at center, #ffffff 0 56%, transparent 57%),
+    conic-gradient(#2563eb 0deg 108deg, #16a34a 108deg 216deg, #eab308 216deg 288deg, #dc2626 288deg 360deg);
+}

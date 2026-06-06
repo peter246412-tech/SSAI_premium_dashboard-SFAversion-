@@ -1,0 +1,6 @@
+supplier,source_name,source_url,source_code,collected_at,note
+심텍,DART Open API,https://opendart.fss.or.kr/,Need API Key,2026-05-28T09:00:00+09:00,Official disclosure connector planned.
+대덕전자,DART Open API,https://opendart.fss.or.kr/,Need API Key,2026-05-28T09:00:00+09:00,Official disclosure connector planned.
+삼성전기,DART Open API,https://opendart.fss.or.kr/,Need API Key,2026-05-28T09:00:00+09:00,Official disclosure connector planned.
+KINSUS,Official IR / exchange disclosure,https://www.kinsus.com.tw/,Need manual verification,2026-05-28T09:00:00+09:00,Official overseas disclosure source should be verified before production.
+Fast Print,Official IR / exchange disclosure,https://www.suntakpcb.com/,Need manual verification,2026-05-28T09:00:00+09:00,Official overseas disclosure source should be verified before production.

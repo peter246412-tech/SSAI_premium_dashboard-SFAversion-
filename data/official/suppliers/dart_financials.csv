@@ -1,0 +1,2 @@
+data_date,value,indicator,source_name,source_url,source_code,collected_at,note
+2026-02-21,,Korean supplier disclosures,DART Open API,https://opendart.fss.or.kr/,Need API Key,2026-05-28T09:00:00+09:00,Need DART_API_KEY. Not fetched in current PoC.

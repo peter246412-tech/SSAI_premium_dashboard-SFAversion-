@@ -1,0 +1,2 @@
+data_date,value,indicator,source_name,source_url,source_code,collected_at,note
+2026-02-21,,Port entry/departure and cargo volume,Ministry of Oceans and Fisheries / data.go.kr,https://www.data.go.kr/,PORT-MIS,2026-05-28T09:00:00+09:00,Need API Key. Indirect logistics signal only; not directly tied to SFA PCB without supplier route mapping.

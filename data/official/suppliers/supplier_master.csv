@@ -1,0 +1,6 @@
+supplier,country,domestic_overseas,product_type,role_in_poc,purchase_weight,purchase_weight_status,source_name,source_url,note
+심텍,Korea,Domestic,"Memory/package PCB, MSAP, FC-CSP substrate",Main PCB primary supply line,32,PoC assumption,User-provided PDF/table,,Need SFA internal purchase data before marking purchase weight as official.
+대덕전자,Korea,Domestic,"Package substrate, FC-BGA",Premium package backup line,24,PoC assumption,User-provided PDF/table,,Need SFA internal purchase data before marking purchase weight as official.
+삼성전기,Korea,Domestic,"Package substrate, FC-BGA",Strategic premium substrate supplier,18,PoC assumption,User-provided PDF/table,,Need SFA internal purchase data before marking purchase weight as official.
+KINSUS,Taiwan,Overseas,"IC substrate, FC-CSP, BGA",Overseas IC substrate supply line,15,PoC assumption,User-provided PDF/table,,Need SFA internal purchase data before marking purchase weight as official.
+Fast Print,China,Overseas,"HDI, multilayer PCB",China/overseas HDI backup line,11,PoC assumption,User-provided PDF/table,,Need SFA internal purchase data before marking purchase weight as official.

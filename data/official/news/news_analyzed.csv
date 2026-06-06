@@ -1,0 +1,2 @@
+data_date,supplier,query,title,source_name,source_url,published_at,risk_type,severity,relevance_score,note
+2026-02-21,All suppliers,7-day supplier and Middle East risk news,High 1 / Medium 6 / Low 5 converted into 30pt risk event score,PoC news scenario data,,2026-02-21,mixed,medium,0.75,PoC assumption. Use GDELT/Naver/Google News RSS connector before calling this official.

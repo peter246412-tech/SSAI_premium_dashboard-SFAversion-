@@ -1,0 +1,2 @@
+data_date,value,variable_name,unit,source_name,source_url,source_code,collected_at,note
+2026-02,12951.344999999999,Global price of copper,USD per metric ton,FRED - Federal Reserve Bank of St. Louis / IMF Primary Commodity Prices,https://fred.stlouisfed.org/series/PCOPPUSDM,PCOPPUSDM,2026-05-28T14:00:31+09:00,"Official data. Monthly series, so 2026-02 value is used."

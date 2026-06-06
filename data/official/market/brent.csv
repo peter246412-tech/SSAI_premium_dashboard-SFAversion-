@@ -1,0 +1,2 @@
+data_date,value,variable_name,unit,source_name,source_url,source_code,collected_at,note
+2026-02-20,72.75,Brent crude oil spot price,USD per barrel,FRED - Federal Reserve Bank of St. Louis / U.S. Energy Information Administration,https://fred.stlouisfed.org/series/DCOILBRENTEU,DCOILBRENTEU,2026-05-28T14:00:31+09:00,Official data. Used as auxiliary logistics and freight cost pressure signal.

@@ -1,0 +1,2 @@
+data_date,value,variable_name,unit,source_name,source_url,source_code,collected_at,note
+2026-02,,Electronic/electrical import price index,index,Bank of Korea ECOS Open API,https://ecos.bok.or.kr/api/,Need series code,2026-05-28T09:00:00+09:00,Need API Key / Need series code. Not displayed as official data; dashboard uses PoC assumption until ECOS code is confirmed.

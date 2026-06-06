@@ -1,0 +1,2 @@
+data_date,value,variable_name,unit,source_name,source_url,source_code,collected_at,note
+2026-02-20,1445.97,USD/KRW spot exchange rate,KRW per 1 USD,FRED - Federal Reserve Bank of St. Louis,https://fred.stlouisfed.org/series/DEXKOUS,DEXKOUS,2026-05-28T14:00:31+09:00,"Official data. 2026-02-21 was Saturday, so previous trading day 2026-02-20 is used."
