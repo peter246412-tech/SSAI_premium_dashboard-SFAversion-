@@ -2,6 +2,18 @@
 
 SFA Semicon의 PCB 원자재 공급망 리스크를 분석하는 SSAI(Semiconductor Supply-chain AI Index) PoC 웹앱입니다.
 
+이 저장소는 같은 과제물을 단계적으로 발전시킨 세 저장소를 하나로 통합한 최종 저장소입니다.
+
+## Version History
+
+| Version | Previous repository | Role | Location |
+| --- | --- | --- | --- |
+| v1 | `supply-chain-risk-ai` | 공급망 리스크 AI 아이디어와 초기 프로젝트 설명 | `legacy/v1-supply-chain-risk-ai/` |
+| v2 | `SSAI_dashboard_-cheap-version-` | HTML/CSS/JavaScript 기반 cheap dashboard 프로토타입 | `legacy/v2-cheap-dashboard/` |
+| v3 | `SSAI_premium_dashboard-SFAversion-` | SFA Semicon 대상 premium React/Vite dashboard 최종본 | root project |
+
+자세한 발전 과정은 `docs/version-history.md`에 정리되어 있습니다.
+
 이 버전은 화면을 **2026-02-21 당일의 조기경보 운영 대시보드**처럼 구성합니다. 즉, 미래 사건 날짜를 화면에 노출하지 않고, 그날 확인 가능한 시장·뉴스·지정학·물류 신호만으로 구매팀이 어떤 판단을 할 수 있었는지 보여줍니다.
 
 ## 날짜 규칙
@@ -106,6 +118,13 @@ src/data/generated/
   prewar_signal_summary.json
   official_data_sources.json
   data_fetch_log.json
+
+legacy/
+  v1-supply-chain-risk-ai/
+  v2-cheap-dashboard/
+
+docs/
+  version-history.md
 ```
 
 ## 발표용 핵심 문장
