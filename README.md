@@ -1,162 +1,173 @@
-# SSAI Dashboard
+# SSAI: Semiconductor Supply-Chain Early-Warning Dashboard
 
-SFA Semicon의 PCB 원자재 공급망 리스크를 분석하는 SSAI(Semiconductor Supply-chain AI Index) PoC 웹앱입니다.
+> A proof-of-concept decision-support dashboard designed to help a mid-sized Korean semiconductor company notice supply-chain risk signals before disruption becomes a crisis.
 
-이 저장소(`Korea-SSAI-Semiconductor-Supply-Chain-Risk-Dashboard`)는 같은 과제물을 단계적으로 발전시킨 세 저장소를 하나로 통합한 최종 저장소입니다.
+SSAI stands for **Semiconductor Supply-chain AI Index**. The final prototype focuses on PCB-material procurement at SFA Semicon and combines market, news, geopolitical, logistics, and supplier signals in an explainable risk view.
 
-## Project Summary
+![SSAI Guardian Dashboard](public/brand/guardian-dashboard.png)
 
-SSAI는 반도체 관련 기업의 구매/조달 담당자가 시장 가격, 뉴스, 지정학, 물류 데이터를 따로따로 확인하지 않고 하나의 조기경보 점수로 공급망 위험을 판단하도록 돕는 대시보드입니다.
+## Why This Project Exists
 
-프로젝트는 처음부터 완성형 대시보드로 시작한 것이 아니라, 아래 순서로 발전했습니다.
+This project began in a **Design Thinking & Business Model** course in the Social Science & AI program at Hankuk University of Foreign Studies. I was interested in economics and understood the broad importance of semiconductor supply chains, but the project did not begin from a deep technical specialization in semiconductors. It began by listening to people working in the industry.
 
-1. 공급망 리스크를 어떻게 점수화할지 정의했습니다.
-2. HTML/CSS/JavaScript로 cheap dashboard 프로토타입을 만들었습니다.
-3. SFA Semicon의 PCB 원자재 공급망 상황에 맞춘 premium React/Vite 대시보드로 확장했습니다.
+Our team interviewed practitioners at several mid-sized semiconductor companies. One of the most informative conversations was with an SFA Semicon procurement professional who had graduated from our university. The interviews revealed a practical pain point: many mid-sized firms concentrate on responding after a disruption becomes visible, while structured early-warning capabilities remain limited. Procurement staff must interpret exchange rates, raw-material prices, logistics conditions, news, and geopolitical events scattered across different sources.
 
-## Version History
+That raised the question that drove the project:
 
-| Version | Previous repository | Role | Location |
-| --- | --- | --- | --- |
-| v1 | `supply-chain-risk-ai` | 공급망 리스크 AI 아이디어와 초기 프로젝트 설명 | `legacy/v1-supply-chain-risk-ai/` |
-| v2 | `SSAI_dashboard_-cheap-version-` | HTML/CSS/JavaScript 기반 cheap dashboard 프로토타입 | `legacy/v2-cheap-dashboard/` |
-| v3 | `Korea-SSAI-Semiconductor-Supply-Chain-Risk-Dashboard` | SFA Semicon 대상 premium React/Vite dashboard 최종본 | root project |
+> Could fragmented external signals be translated into an explainable warning system that helps procurement teams prepare before disruption occurs?
 
-자세한 발전 과정은 `docs/version-history.md`에 순차적으로 정리되어 있습니다.
+For an import-dependent semiconductor industry facing stronger U.S.–China protectionism and unpredictable shocks, even an imperfect early signal could support preparatory decisions: reviewing alternative suppliers, increasing safety stock selectively, or monitoring exposed contracts more closely.
 
-## Development Process
+## My Role
 
-### 1. v1: Concept and Risk Scoring Design
+This was a team project, and I effectively served as the project lead. I proposed the topic, drove the project forward, coordinated the overall direction, participated in practitioner research, defined the dashboard concept, and led the technical implementation of the prototypes.
 
-초기 버전은 웹앱보다 문제 정의와 분석 구조에 집중했습니다. 공급망 위험은 갑자기 발생하는 것이 아니라 시장 가격, 뉴스, 지정학 이슈, 물류 지표에서 먼저 약한 신호로 나타난다는 가정에서 출발했습니다.
+I used AI coding tools extensively during implementation. The project concept, interview-based problem definition, source discovery, product direction, and iterative decisions came from my own research and leadership; AI assisted substantially with producing and revising code. My role included defining requirements, evaluating generated outputs, connecting technical components, checking whether data claims were supportable, and repeatedly refining the product in response to feedback.
 
-이 단계에서는 market, news, geopolitical, logistics 데이터를 나누고, 각 영역을 0-100점으로 변환한 뒤 가중합으로 최종 risk score를 만드는 구조를 설계했습니다.
+The scoring weights were developed through an exploratory design process with AI assistance rather than learned from historical outcomes or validated by an enterprise risk team. They should therefore be read as transparent **PoC assumptions**, not as a production-grade predictive model.
 
-### 2. v2: Cheap Dashboard Prototype
+## How the Project Evolved
 
-두 번째 버전에서는 아이디어를 실제 화면으로 옮겼습니다. HTML, CSS, JavaScript만 사용해 시나리오별 risk score, KPI, domain score, trend chart, news feed, supplier exposure, daily brief를 확인할 수 있는 정적 웹 대시보드를 만들었습니다.
+The dashboard was not conceived as a finished product. It developed through three stages as the problem became more concrete.
 
-이 단계의 목적은 "공급망 리스크 점수가 실제 사용자 화면에서 어떻게 읽히는가"를 빠르게 검증하는 것이었습니다.
+### v1 — Defining the decision problem
 
-### 3. v3: Premium SFA Dashboard
+The first version focused on structure rather than appearance. It divided supply-chain warning signals into market, news, geopolitical, and logistics domains and explored how normalized domain scores might be combined into one interpretable index.
 
-최종 버전에서는 SFA Semicon의 PCB 원자재 공급망 리스크라는 구체적인 기업/업무 맥락을 적용했습니다. React, TypeScript, Vite, Recharts 기반으로 구조를 재작성했고, 공식 데이터, proxy data, PoC assumption, internal data requirement를 화면에서 분리 표시하도록 개선했습니다.
+The premise was not that wars or natural disasters could be predicted directly. It was that weak signals may appear beforehand across prices, reporting, trade policy, shipping conditions, and supplier exposure—and that a procurement team could benefit from seeing those signals together.
 
-또한 `2026-02-21` 분석일 기준의 조기경보 운영 대시보드처럼 구성해, 미래 사건을 직접 노출하지 않고 당시 확인 가능한 신호만으로 어떤 구매 의사결정을 할 수 있었는지 보여주도록 설계했습니다.
+### v2 — Making the concept visible
 
-이 버전은 화면을 **2026-02-21 당일의 조기경보 운영 대시보드**처럼 구성합니다. 즉, 미래 사건 날짜를 화면에 노출하지 않고, 그날 확인 가능한 시장·뉴스·지정학·물류 신호만으로 구매팀이 어떤 판단을 할 수 있었는지 보여줍니다.
+I translated the model into a fast HTML/CSS/JavaScript prototype. This version tested whether a risk score, contributing causes, trend charts, news, and supplier exposure could be understood as one operational view rather than as disconnected analysis.
 
-## 날짜 규칙
+### v3 — Moving from a generic idea to a specific user
 
-- Analysis Date: `2026-02-21`
-- Market Reference Date: `2026-02-20`
-- 이유: `2026-02-21`은 토요일이므로 환율, 유가 등 일별 금융/시장 데이터는 직전 거래일인 `2026-02-20` 값을 사용합니다.
+Feedback challenged the project to identify a concrete persona and pilot context because geopolitical and disaster risk is inherently difficult to predict. In response, I narrowed the target to PCB-material procurement at SFA Semicon and rebuilt the application with React, TypeScript, Vite, and Recharts.
 
-## 데이터 구분 원칙
+The final version does more than improve the interface. It distinguishes what can be supported by public data from what remains a proxy, an explicit assumption, or a requirement for internal enterprise data.
 
-대시보드는 데이터를 아래 네 가지로 구분합니다.
+| Stage | Primary question | Output |
+| --- | --- | --- |
+| v1 | What signals could represent supply-chain risk? | Domain model and scoring concept |
+| v2 | Can users read those signals as one decision view? | Static dashboard prototype |
+| v3 | What would this look like for a real procurement persona? | SFA Semicon-focused React dashboard |
 
-- `Official data`: 공식 기관 또는 신뢰 가능한 기관 데이터
-- `Proxy data`: 공식값은 아니지만 리스크 방향성을 보기 위한 대체 지표
-- `PoC assumption`: 발표용 PoC를 위해 가정한 값
-- `Need internal data`: SFA ERP, 구매계약, PO 리드타임처럼 회사 내부 데이터가 필요한 값
+The earlier versions remain in [`legacy/`](legacy/) because they document the development of the thinking, not because they are alternative production releases. A detailed history is available in [`docs/version-history.md`](docs/version-history.md).
 
-공식 출처가 없는 값은 절대 official data로 표시하지 않습니다. 수집 실패 시에도 조용히 mock 데이터로 숨기지 않고, 화면의 `Data Fetch Log`에 `Official data fetch failed / fallback used` 또는 `Need API Key`로 표시합니다.
+## What the Dashboard Supports
 
-## 공식 데이터 출처
+The interface organizes signals around questions a procurement team might ask:
 
-- USD/KRW 환율: FRED `DEXKOUS`  
-  https://fred.stlouisfed.org/series/DEXKOUS
-- Copper Price: FRED `PCOPPUSDM`  
-  https://fred.stlouisfed.org/series/PCOPPUSDM
-- Brent Crude Oil: FRED `DCOILBRENTEU`  
-  https://fred.stlouisfed.org/series/DCOILBRENTEU
-- Import Price Index: Bank of Korea ECOS Open API, API key 및 series code 필요  
-  https://ecos.bok.or.kr/api/
-- SCFI: Shanghai Shipping Exchange, 과거 특정일 자동 수집은 proxy/manual update로 표시  
-  https://en.sse.net.cn/indices/scfinew.jsp
-- PORT-MIS: data.go.kr / 해양수산부 계열 항만 데이터, API key 필요  
-  https://www.data.go.kr/
-- DART: 국내 공급처 공시 데이터, API key 필요  
-  https://opendart.fss.or.kr/
+- Is overall external risk rising or falling?
+- Which domain is contributing most to the current score?
+- Which suppliers, materials, or countries appear most exposed?
+- Which values come from official sources, and which are proxies or assumptions?
+- What preparatory action could be reviewed—not automatically executed—in response?
 
-## 실행
+The dashboard includes:
 
-의존성 설치:
+- an explainable composite risk score;
+- market, news, geopolitical, logistics, and supplier drill-downs;
+- trend and radar visualizations;
+- supplier exposure and impact tables;
+- source and data-fetch status reporting;
+- a purchase-decision panel and action board; and
+- an executive summary for non-technical users.
+
+The action layer is intentionally advisory. The product does not tell a company to place an order autonomously. It helps a human team decide whether to investigate alternatives, secure backup counterparties, adjust safety stock, or escalate monitoring.
+
+## Data Transparency
+
+One of the most important lessons from building the prototypes was that a polished dashboard can make uncertain numbers look authoritative. The final version therefore labels data according to its evidentiary status:
+
+| Label | Meaning |
+| --- | --- |
+| **Official data** | Obtained from an official or otherwise credible published source |
+| **Proxy data** | A substitute indicator used to infer direction when the desired measure is unavailable |
+| **PoC assumption** | A value created explicitly for demonstration or product-design purposes |
+| **Need internal data** | A field that would require ERP, contract, purchase-order, lead-time, or other company data |
+
+Failed collection is not silently replaced and presented as official. The interface records states such as `Official data fetch failed / fallback used` or `Need API key` in the data-fetch log.
+
+### Sources represented in the pipeline
+
+- [FRED](https://fred.stlouisfed.org/) — USD/KRW, copper, and Brent crude series
+- [Bank of Korea ECOS](https://ecos.bok.or.kr/api/) — import-price indicators
+- [Shanghai Shipping Exchange](https://en.sse.net.cn/indices/scfinew.jsp) — SCFI reference
+- [Korean public data portal](https://www.data.go.kr/) — port and logistics sources
+- [Open DART](https://opendart.fss.or.kr/) — public company disclosures
+
+## Analysis-Date Design
+
+The demonstration is anchored to an analysis date of **February 21, 2026**. Because that date was a Saturday, daily financial and market series use the preceding trading day, February 20, as their reference where appropriate.
+
+The intention is not to expose a later event and then imply that the model predicted it. The dashboard asks a narrower retrospective question: based only on signals that could have been available at the analysis date, what concerns might a procurement team reasonably have chosen to investigate?
+
+## Risk-Scoring Status
+
+The current composite score is a product-design hypothesis. Its transformations, thresholds, and weights are inspectable in [`src/lib/riskScoring.ts`](src/lib/riskScoring.ts), but they have not been calibrated against labeled disruption outcomes or validated inside SFA Semicon.
+
+A production version would require:
+
+1. a clearly defined outcome such as late delivery, price shock, or production interruption;
+2. historical internal procurement and supplier data;
+3. backtesting and sensitivity analysis;
+4. weight calibration or an appropriate statistical/ML model;
+5. alert thresholds evaluated with procurement users; and
+6. governance for false positives, overrides, and data quality.
+
+This limitation is central to the portfolio: I learned that responsible decision support requires making uncertainty visible rather than using the language of AI to hide assumptions.
+
+## Technology
+
+- React and TypeScript
+- Vite
+- Recharts
+- Python data-collection and transformation scripts
+- FRED, ECOS, DART, public logistics, and news-data interfaces
+- HTML/CSS/JavaScript for the v2 prototype
+
+## Run Locally
 
 ```bash
 npm install
-```
-
-공식/프록시 데이터 파일 생성:
-
-```bash
+cp .env.example .env
 npm run fetch:official
-```
-
-대시보드용 생성 데이터 확인:
-
-```bash
 npm run build:prewar
-```
-
-개발 서버 실행:
-
-```bash
 npm run dev
 ```
 
-브라우저 접속:
+The application can also be built with:
 
-```text
-http://127.0.0.1:5173
+```bash
+npm run build
 ```
 
-## API Key
+API credentials are optional for reviewing the interface but required for the corresponding live data collectors. Never commit `.env` or real keys.
 
-실제 key는 코드에 넣지 않습니다. 필요한 key는 `.env.example`에만 이름을 남깁니다.
-
-```text
-FRED_API_KEY=
-ECOS_API_KEY=
-DART_API_KEY=
-DATA_GO_KR_API_KEY=
-NAVER_CLIENT_ID=
-NAVER_CLIENT_SECRET=
-```
-
-## 파일 구조
+## Repository Map
 
 ```text
-data/official/
-  market/
-  news/
-  geo/
-  logistics/
-  suppliers/
-
-scripts/
-  fetch_fred_market.py
-  fetch_ecos_import_price.py
-  fetch_news_signals.py
-  fetch_gdelt_geo.py
-  fetch_logistics_sources.py
-  fetch_dart_suppliers.py
-  build_prewar_dashboard_data.py
-
-src/data/generated/
-  prewar_signal_summary.json
-  official_data_sources.json
-  data_fetch_log.json
-
-legacy/
-  v1-supply-chain-risk-ai/
-  v2-cheap-dashboard/
-
-docs/
-  version-history.md
+src/                    React application and risk-scoring logic
+scripts/                Public-data collection and transformation scripts
+data/official/          Versioned public/reference data used by the PoC
+public/brand/           Product identity and dashboard preview
+docs/version-history.md Detailed evolution from v1 to v3
+legacy/                 Preserved concept and static prototype
 ```
 
-## 발표용 핵심 문장
+## Feedback, Limitations, and Next Steps
 
-“본 대시보드는 미래 사건을 예언하는 모델이 아니라, 2026-02-21 기준 공개 데이터와 명시된 프록시/가정값에서 조기 위험 신호가 보였는지 확인하는 PoC입니다. 공식 데이터와 PoC 가정값을 분리 표시하여, 실제 기업 도입 시 어떤 데이터가 API 또는 ERP 연동으로 대체되어야 하는지도 함께 보여줍니다.”
+Course feedback identified uncertainty in the revenue model. That remains a genuine business limitation: the existence of a procurement pain point does not by itself prove willingness to pay, the correct buyer, or a viable integration model.
+
+The strongest next step would therefore not be another visual redesign. It would be a small pilot with procurement users to test:
+
+- which alerts change an actual preparation decision;
+- which internal data is essential rather than merely desirable;
+- how early a warning must arrive to be useful;
+- what false-positive rate users will tolerate; and
+- whether the product should be sold as software, analysis, or an integration service.
+
+## What I Learned
+
+This project changed my understanding of both AI and product development. A broad technological idea became more credible only after interviews exposed a real workflow, feedback forced a specific persona, and the interface began distinguishing evidence from assumptions. Leading that evolution taught me that building a useful system means owning the uncomfortable questions—who needs it, what decision it changes, what the data can support, and where the product is still only a hypothesis.

@@ -1,24 +1,23 @@
-# SSAI Dashboard
+# SSAI Static Dashboard Prototype (v2)
 
-반도체 공급망 위험 신호를 시나리오별로 확인하는 SSAI 웹앱입니다.
+This archived prototype was the first interface built from the SSAI supply-chain risk-scoring concept. It uses plain HTML, CSS, and JavaScript and is preserved to document the transition from the v1 analytical idea to the final React application.
 
-## 실행
-
-로컬 서버 실행:
+## Run Locally
 
 ```bash
-python3 -m http.server 5173
+python3 -m http.server 8000
 ```
 
-브라우저 접속:
+Then open `http://localhost:8000`.
 
-```text
-http://localhost:5173
-```
+## Prototype Features
 
-## 주요 기능
+- Scenario-based composite risk score and KPI cards
+- Domain scores, 30-day trend, and radar view
+- Top contributing causes and risk-news feed
+- Supplier-exposure table
+- Copyable daily brief
 
-- 시나리오별 종합 Risk Score와 KPI 확인
-- 도메인별 위험 점수, 30일 추세, 레이더 차트
-- 주요 원인, 뉴스 피드, 공급사 노출도 테이블
-- Daily Brief 복사 기능
+## Portfolio Status
+
+This is an exploratory interface, not a production application or validated prediction system. Mock and scenario data were used to test information architecture. The current implementation and its explicit official/proxy/assumption labels are located at the repository root.
