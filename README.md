@@ -4,6 +4,10 @@
 
 SSAI stands for **Semiconductor Supply-chain AI Index**. The final prototype focuses on PCB-material procurement at SFA Semicon and combines market, news, geopolitical, logistics, and supplier signals in an explainable risk view.
 
+![SSAI premium dashboard showing PCB procurement risk and recommended actions](docs/images/v3-premium-dashboard.png)
+
+_The final premium prototype translates a composite risk score into procurement checks and recommended actions for an SFA Semicon use case._
+
 ## Why This Project Exists
 
 This project began in a **Design Thinking & Business Model** course in the Social Science & AI program at Hankuk University of Foreign Studies. I was interested in economics and understood the broad importance of semiconductor supply chains, but the project did not begin from a deep technical specialization in semiconductors. It began by listening to people working in the industry.
@@ -37,6 +41,10 @@ The premise was not that wars or natural disasters could be predicted directly. 
 ### v2 — Making the concept visible
 
 I translated the model into a fast HTML/CSS/JavaScript prototype. This version tested whether a risk score, contributing causes, trend charts, news, and supplier exposure could be understood as one operational view rather than as disconnected analysis.
+
+![Early SSAI Risk Command Center prototype](docs/images/v2-cheap-dashboard.png)
+
+_The v2 “cheap” prototype tested the command-center concept with a broad semiconductor supply-chain scenario before the project was narrowed to a specific procurement user._
 
 ### v3 — Moving from a generic idea to a specific user
 
