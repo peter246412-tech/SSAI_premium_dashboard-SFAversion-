@@ -4,8 +4,6 @@
 
 SSAI stands for **Semiconductor Supply-chain AI Index**. The final prototype focuses on PCB-material procurement at SFA Semicon and combines market, news, geopolitical, logistics, and supplier signals in an explainable risk view.
 
-![SSAI Guardian Dashboard](public/brand/guardian-dashboard.png)
-
 ## Why This Project Exists
 
 This project began in a **Design Thinking & Business Model** course in the Social Science & AI program at Hankuk University of Foreign Studies. I was interested in economics and understood the broad importance of semiconductor supply chains, but the project did not begin from a deep technical specialization in semiconductors. It began by listening to people working in the industry.
